@@ -51,17 +51,17 @@ public function __construct()
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(category $category)
     {
-        //
+     return view('category_show', ['category'=>$category]);  
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Category $category)
     {
-        //
+        return view('category_edit', ['category'=>$category]);
     }
 
     /**
@@ -69,7 +69,15 @@ public function __construct()
      */
     public function update(Request $request, string $id)
     {
-        //
+
+       $updated=$this->category->where('id', $id)->update($request->except(['_token', '_method'])); 
+
+       if($updated){
+            return redirect()->back()->with('message', 'Successfully updated');
+           }
+
+           return redirect()->back()->with('message', 'Error update');
+    //    var_dump($category);
     }
 
     /**
@@ -77,6 +85,8 @@ public function __construct()
      */
     public function destroy(string $id)
     {
-        //
+        $this->category->where('id', $id)->delete();
+
+        return redirect()->route('categories.index');
     }
 }

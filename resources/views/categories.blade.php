@@ -11,7 +11,7 @@
 <ul>
     
     @foreach($categories as $category)
-        <li>{{$category->name}} | {{$category->description}}</li>
+        <li>{{$category->name}} | {{$category->description}} | <a href="{{ route('categories.edit', ['category' =>$category->id]) }}">Editar</a> | <a href="{{ route('categories.show', ['category' =>$category->id]) }}">Show</a></li>
     @endforeach
 
 </ul>
