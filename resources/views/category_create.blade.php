@@ -3,8 +3,16 @@
 <h2>Create</h2>
 
 
+@if ($errors->any())
+    @foreach($errors->all() as $error)
+        {{$error}}
+
+    @endforeach
+@endif
+
+
 @if (session()->has('message'))
-{{ session()->get('message')}}
+    {{ session()->get('message')}}
 @endif
 
 
