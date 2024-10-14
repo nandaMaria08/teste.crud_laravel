@@ -12,8 +12,11 @@
     @csrf
     <input type="hidden" name="_method" value="DELETE">
     <button type="submit">Delete</button>
+    
+
 
 </form>
+<a href="{{ route('categories.index')}}">Voltar</a>
 </div>
 
 

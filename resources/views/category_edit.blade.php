@@ -16,6 +16,7 @@
     <input type="text" name="name" value="{{$category->name}}" >
     <input type="text" name="description" value="{{$category->description}}" >
     <button type="submit">Editar</button>
+    <a href="{{ route('categories.index')}}">Voltar</a>
     
 </form>
 
